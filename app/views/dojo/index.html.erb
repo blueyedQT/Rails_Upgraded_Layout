@@ -1,2 +1,24 @@
-<h1>Dojo#index</h1>
-<p>Find me in app/views/dojo/index.html.erb</p>
+<% content_for :title do %>
+	Dojo Homepage
+<% end %>
+<% content_for :jquery_code do %>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('form').submit(function({
+			$.post($(this).attr('action'), $(this).serialize(), function(data){
+				console.log(data);
+			});
+		return false;
+		});
+	});
+</script>
+<% end %>
+<% content_for :body do %>
+<h1>Hello.  This is the body content for 'Dojo#index'</h1>
+<form action="/home" method="post">
+	<input type="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<input type="text" name="name" placeholder="Name">
+	<input type="text" name="email" placeholder="Email">
+	<input type="submit" value="Submit!">
+</form>
+<% end %>
