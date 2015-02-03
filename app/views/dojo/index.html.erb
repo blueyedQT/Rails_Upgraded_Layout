@@ -15,8 +15,8 @@
 <% end %>
 <% content_for :body do %>
 <h1>Hello.  This is the body content for 'Dojo#index'</h1>
-<form action="/home" method="post">
-	<input type="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+<form action="/dojo/index" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 	<input type="text" name="name" placeholder="Name">
 	<input type="text" name="email" placeholder="Email">
 	<input type="submit" value="Submit!">
